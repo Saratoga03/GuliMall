@@ -17,3 +17,5 @@ buildNumber.properties
 **/mvnw.cmd
 **/target
 .idea
+renren-fast
+renren-generator
