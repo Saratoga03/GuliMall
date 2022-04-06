@@ -5,6 +5,14 @@ spring:
     url: jdbc:mysql://192.168.43.129:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: SaraIsRoot
+  # 注册进服务中心nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://192.168.43.129:8848
+  # 微服务名称
+  application:
+    name: gulimall-product
 
 mybatis-plus:
   # mapper映射文件路径
@@ -14,5 +22,6 @@ mybatis-plus:
       # 配置主键自增
       id-type: auto
 
+# 微服务端口
 server:
   port: 10000

@@ -1,6 +1,7 @@
 package com.gb.gulimall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,16 +32,14 @@ public class CategoryController {
     private CategoryService categoryService;
 
     /**
-     * 列表
+     * 查询三级分类信息并组装成树形结构
      */
-    @RequestMapping("/list")
-    // @RequiresPermissions("product:category:list")
+    @RequestMapping("/list/tree")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
+        List<CategoryEntity> entities = categoryService.getListWithTree();
 
-        return R.ok().put("page", page);
+        return R.ok().put("page", entities);
     }
-
 
     /**
      * 信息
@@ -57,9 +56,8 @@ public class CategoryController {
      * 保存
      */
     @RequestMapping("/save")
-    // @RequiresPermissions("product:category:save")
     public R save(@RequestBody CategoryEntity category){
-		categoryService.save(category);
+		categoryService.insertInfo(category);
 
         return R.ok();
     }
@@ -68,9 +66,8 @@ public class CategoryController {
      * 修改
      */
     @RequestMapping("/update")
-    // @RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
-		categoryService.updateById(category);
+		categoryService.updateInfoById(category);
 
         return R.ok();
     }
@@ -79,9 +76,8 @@ public class CategoryController {
      * 删除
      */
     @RequestMapping("/delete")
-    // @RequiresPermissions("product:category:delete")
-    public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+    public R logicDelete(@RequestBody Long[] catIds){
+		categoryService.logicDeleteInfoByIds(Arrays.asList(catIds));
 
         return R.ok();
     }

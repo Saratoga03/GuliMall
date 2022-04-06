@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://192.168.43.129:8848
+    gateway:
+      routes:
+        - id: product_route
+          uri: lb://gulimall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: login_route
+          uri: lb://renren-fast # lb : 负载均衡Load Balance
+          predicates:
+            - Path=/api/** # 指定路径路由
+          filters:
+            - RewritePath=/api/?(?<segment>.*), /renren-fast/$\{segment} #重写路径：/api/ -> /renren-fast/
+
+  application:
+    name: gulimall-gateway
+
+server:
+  port: 88

@@ -9,9 +9,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.gb.gulimall</groupId>
-    <artifactId>gulimall-product</artifactId>
+    <artifactId>gulimall-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <description>谷粒商城-商品服务</description>
+    <description>API网关</description>
 
     <dependencies>
         <!--本项目公用模块-->
@@ -23,21 +23,13 @@
         <!--SpringBoot通用模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--openfeign-->
+        <!--gateway-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
     </dependencies>
 </project>
