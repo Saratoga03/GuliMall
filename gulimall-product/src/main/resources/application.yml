@@ -1,18 +1,17 @@
+server:
+  port: 10000
+
 spring:
-  # 配置数据源
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.43.129:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: root
-    password: SaraIsRoot
-  # 注册进服务中心nacos
   cloud:
     nacos:
       discovery:
-        server-addr: http://192.168.43.129:8848
-  # 微服务名称
-  application:
-    name: gulimall-product
+        server-addr: aliyun_esc:8848
+  # 配置数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://aliyun_esc:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: SaraIsRoot
 
 mybatis-plus:
   # mapper映射文件路径
@@ -21,7 +20,3 @@ mybatis-plus:
     db-config:
       # 配置主键自增
       id-type: auto
-
-# 微服务端口
-server:
-  port: 10000

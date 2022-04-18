@@ -18,13 +18,14 @@
         <module>renren-generator</module>
         <module>gulimall-common</module>
         <module>gulimall-gateway</module>
+        <module>gulimall-third-party</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <springcloud.version>Hoxton.SR12</springcloud.version>
         <springcloudalibaba.version>2.2.0.RELEASE</springcloudalibaba.version>
-        <springboot.version>2.2.4.RELEASE</springboot.version>
+        <springboot.version>2.3.12.RELEASE</springboot.version>
         <mysql.version>5.1.47</mysql.version>
         <mybatisplus.version>3.5.1</mybatisplus.version>
         <lombok.version>1.18.4</lombok.version>

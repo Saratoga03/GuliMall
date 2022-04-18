@@ -1,4 +1,4 @@
-package com.gb.gulimall.gateway;
+package com.gb.gulimall.thirdparty;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,12 +6,11 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
-/*排除和数据源相关的依赖*/
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class GulimallGatewayApplication {
+public class GulimallThirdPartyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GulimallGatewayApplication.class, args);
+        SpringApplication.run(GulimallThirdPartyApplication.class, args);
     }
 
 }

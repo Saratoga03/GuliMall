@@ -1,14 +1,24 @@
+server:
+  port: 88
+
 spring:
   cloud:
     nacos:
       discovery:
-        server-addr: http://192.168.43.129:8848
+        server-addr: aliyun_esc:8848
     gateway:
       routes:
         - id: product_route
           uri: lb://gulimall-product
           predicates:
             - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: oss_route
+          uri: lb://gulimall-third-party
+          predicates:
+            - Path=/api/oss/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
 
@@ -19,8 +29,4 @@ spring:
           filters:
             - RewritePath=/api/?(?<segment>.*), /renren-fast/$\{segment} #重写路径：/api/ -> /renren-fast/
 
-  application:
-    name: gulimall-gateway
 
-server:
-  port: 88
